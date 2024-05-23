@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+
+// dart run flutter_native_splash:create --path=flutter_native_splash.yaml
+
 void main() {
   runApp(const MyApp());
 }
