@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 class CustomPngImage extends StatelessWidget {
-  final String? imageName;
+  final String imageName;
   final double? height;
   final double? width;
   final Color? color;
   final BoxFit? fit;
-  CustomPngImage(
-      {this.imageName, this.height, this.width, this.color, this.fit});
+  const CustomPngImage(
+      {super.key,required this.imageName, this.height, this.width, this.color, this.fit});
   @override
   Widget build(BuildContext context) {
     return Image.asset(
@@ -23,7 +24,7 @@ class CustomPngImage extends StatelessWidget {
 }
 
 class CustomSvgImage extends StatelessWidget {
-  final String? imageName;
+  final String imageName;
   final double? height;
   final double? width;
   final Color? color;
@@ -31,8 +32,8 @@ class CustomSvgImage extends StatelessWidget {
   final int rotateAngle;
   final BoxFit? fit;
 
-  CustomSvgImage({
-    this.imageName,
+  const CustomSvgImage({super.key, 
+    required this.imageName,
     this.height,
     this.width,
     this.color,

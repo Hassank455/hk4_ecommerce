@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hk4_ecommerce/core/routing/routes.dart';
+import 'package:hk4_ecommerce/features/onboarding/logic/cubit/onboarding_cubit.dart';
 import 'package:hk4_ecommerce/features/onboarding/onboarding_screen.dart';
 
 class AppRouter {
@@ -11,7 +12,10 @@ class AppRouter {
     switch (settings.name) {
       case Routes.onBoardingScreen:
         return MaterialPageRoute(
-          builder: (_) => const OnboardingScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => OnboardingCubit(),
+            child: const OnboardingScreen(),
+          ),
         );
       // case Routes.loginScreen:
       //   return MaterialPageRoute(
@@ -26,7 +30,7 @@ class AppRouter {
       //       create: (context) => getIt<SignupCubit>(),
       //       child: const SignupScreen(),
       //     ),
-      //   );  
+      //   );
       // case Routes.homeScreen:
       //   return MaterialPageRoute(
       //     builder: (_) => const HomeScreen(),

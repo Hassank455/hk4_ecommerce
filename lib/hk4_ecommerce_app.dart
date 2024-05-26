@@ -19,6 +19,7 @@ class Hk4EcommerceApp extends StatelessWidget {
           theme: ThemeData(
             primaryColor: ColorsManager.mainDarkBlue,
             scaffoldBackgroundColor: Colors.white,
+            fontFamily: 'Poppins',
           ),
           debugShowCheckedModeBanner: false,
           initialRoute: Routes.onBoardingScreen,
