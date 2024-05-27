@@ -5,5 +5,5 @@ part 'onboarding_state.freezed.dart';
 class OnboardingState<T> with _$OnboardingState {
   const factory OnboardingState.initial() = _Initial;
 
-  const factory OnboardingState.changePageState() = ChangePageState;
+  const factory OnboardingState.changePageState({required int currentPage}) = ChangePageState;
 }

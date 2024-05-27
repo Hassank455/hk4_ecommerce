@@ -8,27 +8,26 @@ import 'package:hk4_ecommerce/features/onboarding/widget/indecator_widget.dart';
 class OnboardingCubit extends Cubit<OnboardingState> {
   OnboardingCubit() : super(const OnboardingState.initial());
 
-  List<String> onboardingImage = [
-    AppPngImage.onboardingFirstImage,
-    AppPngImage.onboardingSecondImage,
+  List onboardingData = [
+    {
+      'image': AppPngImage.onboardingFirstImage,
+      'title': AppStrings.onboardingFirstName,
+      'dec': AppStrings.onboardingFirstDescription,
+    },
+    {
+      'image': AppPngImage.onboardingSecondImage,
+      'title': AppStrings.onboardingSecondName,
+      'dec': AppStrings.onboardingSecondDescription,
+    },
   ];
-  List<String> onboardingNames = [
-    AppStrings.onboardingFirstName,
-    AppStrings.onboardingSecondName,
-  ];
-  List<String> onboardingDescriptions = [
-    AppStrings.onboardingFirstDescription,
-    AppStrings.onboardingSecondDescription,
-  ];
+
+ 
 
   int currentPage = 0;
 
   void changeCurrentPage(int index) {
     currentPage = index;
-    print('currentPage');
-    print(currentPage);
-    emit(const OnboardingState.changePageState());
-    print(currentPage);
+    emit( OnboardingState.changePageState(currentPage: currentPage));
   }
 
   PageController pageController = PageController(

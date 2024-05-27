@@ -19,19 +19,19 @@ mixin _$OnboardingState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() changePageState,
+    required TResult Function(int currentPage) changePageState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? changePageState,
+    TResult? Function(int currentPage)? changePageState,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? changePageState,
+    TResult Function(int currentPage)? changePageState,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,7 +113,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() changePageState,
+    required TResult Function(int currentPage) changePageState,
   }) {
     return initial();
   }
@@ -122,7 +122,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? changePageState,
+    TResult? Function(int currentPage)? changePageState,
   }) {
     return initial?.call();
   }
@@ -131,7 +131,7 @@ class _$InitialImpl<T> implements _Initial<T> {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? changePageState,
+    TResult Function(int currentPage)? changePageState,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -181,6 +181,8 @@ abstract class _$$ChangePageStateImplCopyWith<T, $Res> {
   factory _$$ChangePageStateImplCopyWith(_$ChangePageStateImpl<T> value,
           $Res Function(_$ChangePageStateImpl<T>) then) =
       __$$ChangePageStateImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({int currentPage});
 }
 
 /// @nodoc
@@ -190,54 +192,80 @@ class __$$ChangePageStateImplCopyWithImpl<T, $Res>
   __$$ChangePageStateImplCopyWithImpl(_$ChangePageStateImpl<T> _value,
       $Res Function(_$ChangePageStateImpl<T>) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? currentPage = null,
+  }) {
+    return _then(_$ChangePageStateImpl<T>(
+      currentPage: null == currentPage
+          ? _value.currentPage
+          : currentPage // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$ChangePageStateImpl<T> implements ChangePageState<T> {
-  const _$ChangePageStateImpl();
+  const _$ChangePageStateImpl({required this.currentPage});
+
+  @override
+  final int currentPage;
 
   @override
   String toString() {
-    return 'OnboardingState<$T>.changePageState()';
+    return 'OnboardingState<$T>.changePageState(currentPage: $currentPage)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ChangePageStateImpl<T>);
+        (other.runtimeType == runtimeType &&
+            other is _$ChangePageStateImpl<T> &&
+            (identical(other.currentPage, currentPage) ||
+                other.currentPage == currentPage));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, currentPage);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangePageStateImplCopyWith<T, _$ChangePageStateImpl<T>> get copyWith =>
+      __$$ChangePageStateImplCopyWithImpl<T, _$ChangePageStateImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() changePageState,
+    required TResult Function(int currentPage) changePageState,
   }) {
-    return changePageState();
+    return changePageState(currentPage);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? changePageState,
+    TResult? Function(int currentPage)? changePageState,
   }) {
-    return changePageState?.call();
+    return changePageState?.call(currentPage);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? changePageState,
+    TResult Function(int currentPage)? changePageState,
     required TResult orElse(),
   }) {
     if (changePageState != null) {
-      return changePageState();
+      return changePageState(currentPage);
     }
     return orElse();
   }
@@ -275,5 +303,11 @@ class _$ChangePageStateImpl<T> implements ChangePageState<T> {
 }
 
 abstract class ChangePageState<T> implements OnboardingState<T> {
-  const factory ChangePageState() = _$ChangePageStateImpl<T>;
+  const factory ChangePageState({required final int currentPage}) =
+      _$ChangePageStateImpl<T>;
+
+  int get currentPage;
+  @JsonKey(ignore: true)
+  _$$ChangePageStateImplCopyWith<T, _$ChangePageStateImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
