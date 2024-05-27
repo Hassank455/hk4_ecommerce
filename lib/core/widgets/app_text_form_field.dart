@@ -2,19 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hk4_ecommerce/core/theming/colors.dart';
 import 'package:hk4_ecommerce/core/theming/styles.dart';
+import 'package:hk4_ecommerce/core/widgets/custom_image.dart';
 
-class AppTextFormField extends StatelessWidget {
+class AppTextFormField extends StatefulWidget {
   final EdgeInsetsGeometry? contentPadding;
   final InputBorder? focusedBorder;
   final InputBorder? enabledBorder;
   final TextStyle? inputTextStyle;
   final TextStyle? hintStyle;
   final String hintText;
-  final bool? isObscureText;
+  final bool isObscureText;
   final Widget? suffixIcon;
   final Color? backgroundColor;
   final TextEditingController? controller;
   final Function(String?) validator;
+  final TextInputType? textInputType;
   const AppTextFormField({
     super.key,
     this.contentPadding,
@@ -23,22 +25,31 @@ class AppTextFormField extends StatelessWidget {
     this.inputTextStyle,
     this.hintStyle,
     required this.hintText,
-    this.isObscureText,
+    this.isObscureText = false,
     this.suffixIcon,
     this.backgroundColor,
     this.controller,
+    this.textInputType,
     required this.validator,
   });
 
   @override
+  State<AppTextFormField> createState() => _AppTextFormFieldState();
+}
+
+class _AppTextFormFieldState extends State<AppTextFormField> {
+  bool _obscureText = true;
+
+  @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: controller,
+      controller: widget.controller,
+      keyboardType: widget.textInputType ?? TextInputType.text,
       decoration: InputDecoration(
         isDense: true,
-        contentPadding: contentPadding ??
+        contentPadding: widget.contentPadding ??
             EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
-        focusedBorder: focusedBorder ??
+        focusedBorder: widget.focusedBorder ??
             OutlineInputBorder(
               borderSide: const BorderSide(
                 color: ColorsManager.mainDarkBlue,
@@ -46,7 +57,7 @@ class AppTextFormField extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(16.0),
             ),
-        enabledBorder: enabledBorder ??
+        enabledBorder: widget.enabledBorder ??
             OutlineInputBorder(
               borderSide: const BorderSide(
                 color: ColorsManager.lighterGray,
@@ -68,17 +79,32 @@ class AppTextFormField extends StatelessWidget {
           ),
           borderRadius: BorderRadius.circular(16.0),
         ),
-        hintStyle: hintStyle ?? TextStyles.font14LightGrayRegular,
-        hintText: hintText,
-        suffixIcon: suffixIcon,
-        fillColor: backgroundColor ?? ColorsManager.moreLightGray,
+        hintStyle: widget.hintStyle ?? TextStyles.font14LightGrayRegular,
+        hintText: widget.hintText,
+        suffixIcon: widget.isObscureText
+            ? IconButton(
+                icon: Icon(
+                  widget.isObscureText
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                ),
+                onPressed: _toggle,
+              )
+            : widget.suffixIcon,
+        fillColor: widget.backgroundColor ?? ColorsManager.moreLightGray,
         filled: true,
       ),
-      obscureText: isObscureText ?? false,
+      obscureText: widget.isObscureText ? _obscureText : false,
       style: TextStyles.font14DarkBlueMedium,
       validator: (value) {
-        return validator(value);
+        return widget.validator(value);
       },
     );
+  }
+
+  void _toggle() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
   }
 }
