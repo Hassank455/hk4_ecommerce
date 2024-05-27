@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hk4_ecommerce/core/routing/routes.dart';
 import 'package:hk4_ecommerce/features/home/ui/home_screen.dart';
+import 'package:hk4_ecommerce/features/login/ui/login_screen.dart';
 import 'package:hk4_ecommerce/features/onboarding/logic/cubit/onboarding_cubit.dart';
 import 'package:hk4_ecommerce/features/onboarding/onboarding_screen.dart';
+import 'package:hk4_ecommerce/features/register/ui/register_screen.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
@@ -32,6 +34,14 @@ class AppRouter {
       //       child: const SignupScreen(),
       //     ),
       //   );
+      case Routes.registerScreen:
+        return MaterialPageRoute(
+          builder: (_) => const RegisterScreen(),
+        );
+      case Routes.loginScreen:
+        return MaterialPageRoute(
+          builder: (_) => const LoginScreen(),
+        );
       case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),

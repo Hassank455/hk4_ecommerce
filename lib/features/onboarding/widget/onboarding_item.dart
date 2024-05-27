@@ -72,7 +72,7 @@ class OnboardingItemWidget extends StatelessWidget {
                             curve: Curves.ease);
                       } else {
                         //  SharedPreferencesController().setOnBoarding(true);
-                        context.pushNamedAndRemoveUntil(Routes.homeScreen,
+                        context.pushNamedAndRemoveUntil(Routes.loginScreen,
                             predicate: (Route<dynamic> route) => false);
                       }
                     },

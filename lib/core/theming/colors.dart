@@ -9,4 +9,5 @@ class ColorsManager {
   static const Color lighterGray = Color(0xFFEDEDED);
   static const Color moreLightGray = Color(0xFFFDFDFF);
   static const Color white = Color(0xFFFFFFFF);
+  static const Color black = Color(0xFF000000);
 }
