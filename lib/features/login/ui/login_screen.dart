@@ -20,8 +20,8 @@ class LoginScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.symmetric(
-              horizontal: AppSize.s20, vertical: AppSize.s30),
+          padding: EdgeInsets.symmetric(
+              horizontal: AppSize.s20.w, vertical: AppSize.s30.h),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,14 +45,15 @@ class LoginScreen extends StatelessWidget {
                   style: TextStyles.font16GrayRegular,
                 ),
                 verticalSpace(AppSize.s40),
-                const EmailAndPasswordWidget(),verticalSpace(AppSize.s40),
-          AppTextButton(
-              buttonText: AppStrings.login,
-              verticalPadding: AppSize.s10.h,
-              textStyle: TextStyles.font16WhiteBold,
-              onPressed: () {
-                context.read<LoginCubit>().emitLoginStates();
-              }),
+                const EmailAndPasswordWidget(),
+                verticalSpace(AppSize.s40),
+                AppTextButton(
+                    buttonText: AppStrings.login,
+                    verticalPadding: AppSize.s10.h,
+                    textStyle: TextStyles.font16WhiteBold,
+                    onPressed: () {
+                      context.read<LoginCubit>().emitLoginStates();
+                    }),
                 verticalSpace(AppSize.s40),
                 const Align(
                   alignment: AlignmentDirectional.center,
