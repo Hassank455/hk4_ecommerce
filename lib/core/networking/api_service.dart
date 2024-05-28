@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:hk4_ecommerce/core/networking/api_constants.dart';
 import 'package:hk4_ecommerce/features/login/data/models/login_request_body.dart';
 import 'package:hk4_ecommerce/features/login/data/models/login_response.dart';
+import 'package:hk4_ecommerce/features/register/data/models/register_request_body.dart';
+import 'package:hk4_ecommerce/features/register/data/models/register_response.dart';
 import 'package:retrofit/retrofit.dart';
 part 'api_service.g.dart';
 
@@ -14,8 +16,8 @@ abstract class ApiService {
     @Body() LoginRequestBody loginRequestBody,
   );
 
-  // @POST(ApiConstants.signup)
-  // Future<SignupResponse> signup(
-  //   @Body() SignupRequestBody signupRequestBody,
-  // );
+  @POST(ApiConstants.register)
+  Future<RegisterResponse> register(
+    @Body() RegisterRequestBody registerRequestBody,
+  );
 }

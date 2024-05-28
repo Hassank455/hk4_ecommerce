@@ -5,6 +5,8 @@ import 'package:hk4_ecommerce/core/networking/dio_factory.dart';
 import 'package:hk4_ecommerce/features/login/data/repos/login_repo.dart';
 import 'package:hk4_ecommerce/features/login/logic/cubit/login_cubit.dart';
 import 'package:hk4_ecommerce/features/onboarding/logic/cubit/onboarding_cubit.dart';
+import 'package:hk4_ecommerce/features/register/data/repos/register_repo.dart';
+import 'package:hk4_ecommerce/features/register/logic/cubit/register_cubit.dart';
 
 //! important
 // registerLazySingleton => create one instant and use it in all app
@@ -23,7 +25,7 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
 
-  // // signup
-  // getIt.registerLazySingleton<SignupRepo>(() => SignupRepo(getIt()));
-  // getIt.registerFactory<SignupCubit>(() => SignupCubit(getIt()));
+  // register
+  getIt.registerLazySingleton<RegisterRepo>(() => RegisterRepo(getIt()));
+  getIt.registerFactory<RegisterCubit>(() => RegisterCubit(getIt()));
 }

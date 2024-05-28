@@ -7,6 +7,7 @@ import 'package:hk4_ecommerce/features/login/logic/cubit/login_cubit.dart';
 import 'package:hk4_ecommerce/features/login/ui/login_screen.dart';
 import 'package:hk4_ecommerce/features/onboarding/logic/cubit/onboarding_cubit.dart';
 import 'package:hk4_ecommerce/features/onboarding/onboarding_screen.dart';
+import 'package:hk4_ecommerce/features/register/logic/cubit/register_cubit.dart';
 import 'package:hk4_ecommerce/features/register/ui/register_screen.dart';
 
 class AppRouter {
@@ -38,7 +39,10 @@ class AppRouter {
       //   );
       case Routes.registerScreen:
         return MaterialPageRoute(
-          builder: (_) => const RegisterScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<RegisterCubit>(),
+            child: const RegisterScreen(),
+          ),
         );
       case Routes.homeScreen:
         return MaterialPageRoute(
