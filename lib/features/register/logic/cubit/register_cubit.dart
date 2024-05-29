@@ -26,7 +26,12 @@ class RegisterCubit extends Cubit<RegisterState> {
         ),
       );
       response.when(success: (registerResponse) {
-        emit(RegisterState.registerSuccess(registerResponse));
+        if (registerResponse.status == false) {
+          emit(RegisterState.registerError(
+              error: registerResponse.message.toString()));
+        } else {
+          emit(RegisterState.registerSuccess(registerResponse));
+        }
       }, failure: (error) {
         emit(RegisterState.registerError(
             error: error.apiErrorModel.message ?? ''));

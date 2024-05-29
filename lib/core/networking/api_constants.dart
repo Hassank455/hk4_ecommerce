@@ -12,6 +12,18 @@ class ApiConstants {
   static const String productsSearch = "products/search";
   static const String products = "products/";
   static const String addresses = "addresses/";
+
+  static const String contacts = "contacts";
+  static const String banners = "banners";
+  static const String logout = "logout";
+  static const String faqs = "faqs";
+
+  static const String categoriesProducts = "categories/products";
+
+
+
+  static const String categoriesSearch = "categories/search";
+
 }
 
 class ApiErrors {

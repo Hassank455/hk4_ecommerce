@@ -10,6 +10,7 @@ import 'package:hk4_ecommerce/core/widgets/custom_image.dart';
 import 'package:hk4_ecommerce/core/widgets/custom_text.dart';
 import 'package:hk4_ecommerce/features/register/logic/cubit/register_cubit.dart';
 import 'package:hk4_ecommerce/features/register/ui/widgets/already_have_account_text.dart';
+import 'package:hk4_ecommerce/features/register/ui/widgets/register_bloc_listener.dart';
 import 'package:hk4_ecommerce/features/register/ui/widgets/register_form_widget.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -58,6 +59,7 @@ class RegisterScreen extends StatelessWidget {
                 alignment: AlignmentDirectional.center,
                 child: AlreadyHaveAccountText(),
               ),
+              const RegisterBlocListener(),
             ],
           ),
         ),

@@ -12,6 +12,7 @@ class AppStrings {
   static const phone = 'Phone';
   static const register = 'Register';
   static const password = 'Password';
+  static const editProfile = 'Edit Profile';
   static const alreadyHaveAccount = 'Already have an account?';
   static const looksLikeYouDon = 'Looks like you don\'t have an account ';
   static const signUpToAccount = 'Sign Up To Account';
