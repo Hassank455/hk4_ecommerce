@@ -23,7 +23,7 @@ class Hk4EcommerceApp extends StatelessWidget {
           ),
           debugShowCheckedModeBanner: false,
           //initialRoute: Routes.onBoardingScreen,
-          initialRoute: Routes.profileScreen,
+          initialRoute: Routes.homeScreen,
           onGenerateRoute: appRouter.generateRoute,
         ));
   }

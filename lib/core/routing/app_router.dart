@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hk4_ecommerce/core/di/dependency_injection.dart';
 import 'package:hk4_ecommerce/core/routing/routes.dart';
+import 'package:hk4_ecommerce/features/home/logic/cubit/home_cubit.dart';
 import 'package:hk4_ecommerce/features/home/ui/home_screen.dart';
 import 'package:hk4_ecommerce/features/login/logic/cubit/login_cubit.dart';
 import 'package:hk4_ecommerce/features/login/ui/login_screen.dart';
@@ -40,7 +41,10 @@ class AppRouter {
         );
       case Routes.homeScreen:
         return MaterialPageRoute(
-          builder: (_) => const HomeScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<HomeCubit>(),
+            child: const HomeScreen(),
+          ),
         );
       case Routes.profileScreen:
         return MaterialPageRoute(
