@@ -61,6 +61,10 @@ dependencies:
   flutter_svg: ^2.0.10+1
   # for adapting screen and font size.
   flutter_screenutil: ^5.9.0
+  # for caching images
+  cached_network_image: ^3.3.1
+  # for shimmer loading
+  shimmer: ^3.0.0
   
   firebase_core: ^2.31.0
 

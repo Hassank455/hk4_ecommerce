@@ -22,7 +22,8 @@ class Hk4EcommerceApp extends StatelessWidget {
             fontFamily: 'Poppins',
           ),
           debugShowCheckedModeBanner: false,
-          initialRoute: Routes.onBoardingScreen,
+          //initialRoute: Routes.onBoardingScreen,
+          initialRoute: Routes.homeScreen,
           onGenerateRoute: appRouter.generateRoute,
         ));
   }
