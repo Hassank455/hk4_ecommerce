@@ -1,5 +1,6 @@
 class AppSvgImage {
   static const person = "person";
+  static const notifications = "notifications";
 }
 
 class AppPngImage {

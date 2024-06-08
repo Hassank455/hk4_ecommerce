@@ -13,7 +13,7 @@ import 'package:hk4_ecommerce/features/register/logic/cubit/register_cubit.dart'
 import 'package:hk4_ecommerce/features/register/ui/register_screen.dart';
 
 class AppRouter {
-  Route generateRoute(RouteSettings settings) {
+  Route? generateRoute(RouteSettings settings) {
     //this arguments to be passed in any screen like this ( arguments as ClassName )
     final arguments = settings.arguments;
 
@@ -51,13 +51,7 @@ class AppRouter {
           builder: (_) => const ProfileScreen(),
         );
       default:
-        return MaterialPageRoute(
-          builder: (_) => Scaffold(
-            body: Center(
-              child: Text('No route defined for ${settings.name}'),
-            ),
-          ),
-        );
+        return null;
     }
   }
 }

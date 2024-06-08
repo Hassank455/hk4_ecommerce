@@ -10,6 +10,10 @@ class AppStrings {
   static const name = 'Name';
   static const login = 'Login';
   static const phone = 'Phone';
+  static const added = 'Added';
+  static const addToCart = 'Add to cart';
+  static const hi = 'Hi,';
+  static const howAreYou = 'How Are you Today?';
   static const register = 'Register';
   static const password = 'Password';
   static const editProfile = 'Edit Profile';
