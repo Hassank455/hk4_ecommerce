@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hk4_ecommerce/core/helpers/constants.dart';
+import 'package:hk4_ecommerce/core/helpers/shared_pref_helper.dart';
+import 'package:hk4_ecommerce/core/networking/dio_factory.dart';
 import 'package:hk4_ecommerce/features/register/data/models/register_request_body.dart';
 import 'package:hk4_ecommerce/features/register/data/repos/register_repo.dart';
 import 'package:hk4_ecommerce/features/register/logic/cubit/register_state.dart';
@@ -25,11 +28,12 @@ class RegisterCubit extends Cubit<RegisterState> {
           password: passwordController.text,
         ),
       );
-      response.when(success: (registerResponse) {
+      response.when(success: (registerResponse)async {
         if (registerResponse.status == false) {
           emit(RegisterState.registerError(
               error: registerResponse.message.toString()));
         } else {
+          await saveUserToken(registerResponse.userData?.token ?? '');
           emit(RegisterState.registerSuccess(registerResponse));
         }
       }, failure: (error) {
@@ -38,4 +42,10 @@ class RegisterCubit extends Cubit<RegisterState> {
       });
     }
   }
+
+  Future<void> saveUserToken(String token) async {
+    await SharedPrefHelper.setSecuredString(SharedPrefKeys.userToken, token);
+    DioFactory.setTokenIntoHeaderAfterLogin(token);
+  }
+
 }

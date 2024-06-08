@@ -65,8 +65,13 @@ dependencies:
   cached_network_image: ^3.3.1
   # for shimmer loading
   shimmer: ^3.0.0
-  
+  # A carousel slider widget, support infinite scroll and custom child widget.
+  carousel_slider: ^4.2.1
   firebase_core: ^2.31.0
+  # reading and writing simple key-value pairs
+  shared_preferences: ^2.2.3
+  # provides API to store data in secure storage.
+  flutter_secure_storage: ^9.2.2
 
 dev_dependencies:
   flutter_test:
