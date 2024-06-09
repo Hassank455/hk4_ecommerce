@@ -22,17 +22,19 @@ class MainScreen extends StatelessWidget {
             AppSize.s20.w,
             AppSize.s28.h,
           ),
-          child: Column(
-            children: [
-              verticalSpace(AppSize.s20),
-              const HomeTopBar(),
-              verticalSpace(AppSize.s20),
-              const BannersHomeWidget(),
-              verticalSpace(AppSize.s10),
-              const CategoriesListView(),
-              verticalSpace(AppSize.s10),
-              const ProductGridView(),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                verticalSpace(AppSize.s20),
+                const HomeTopBar(),
+                verticalSpace(AppSize.s20),
+                const BannersHomeWidget(),
+                verticalSpace(AppSize.s10),
+                const CategoriesListView(),
+                verticalSpace(AppSize.s10),
+                const ProductGridView(),
+              ],
+            ),
           ),
         ),
       ),

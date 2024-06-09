@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hk4_ecommerce/core/theming/colors.dart';
-import 'package:hk4_ecommerce/core/widgets/cached_network_image.dart';
 import 'package:hk4_ecommerce/features/main/ui/widgets/product_grid_view_item.dart';
 
 class ProductGridView extends StatelessWidget {
@@ -11,7 +9,8 @@ class ProductGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      physics: const BouncingScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
+      shrinkWrap: true,
       itemBuilder: (BuildContext context, int index) {
         return ProductGridViewItem(
             image:
@@ -21,14 +20,16 @@ class ProductGridView extends StatelessWidget {
             oldPrice: 10,
             discount: 10,
             favoriteIcon: Icon(Icons.favorite),
-            showAddCart: false,
+            showAddCart: true,
+            isCart: false,
             addFavorite: () {});
       },
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: 200,
-        childAspectRatio: 2 / 3.10,
-      ),
-      itemCount: 10,
+          maxCrossAxisExtent: 200,
+          childAspectRatio: 2 / 3.1,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10),
+      itemCount: 3,
     );
   }
 }
