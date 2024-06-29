@@ -23,6 +23,9 @@ mixin _$MainState {
     required TResult Function(CategoriesResponseModel categoriesResponseModel)
         categoriesSuccess,
     required TResult Function(ErrorHandler errorHandler) categoriesError,
+    required TResult Function() homeLoading,
+    required TResult Function(HomeResponseModel homeResponseModel) homeSuccess,
+    required TResult Function(ErrorHandler errorHandler) homeError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +35,9 @@ mixin _$MainState {
     TResult? Function(CategoriesResponseModel categoriesResponseModel)?
         categoriesSuccess,
     TResult? Function(ErrorHandler errorHandler)? categoriesError,
+    TResult? Function()? homeLoading,
+    TResult? Function(HomeResponseModel homeResponseModel)? homeSuccess,
+    TResult? Function(ErrorHandler errorHandler)? homeError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +47,9 @@ mixin _$MainState {
     TResult Function(CategoriesResponseModel categoriesResponseModel)?
         categoriesSuccess,
     TResult Function(ErrorHandler errorHandler)? categoriesError,
+    TResult Function()? homeLoading,
+    TResult Function(HomeResponseModel homeResponseModel)? homeSuccess,
+    TResult Function(ErrorHandler errorHandler)? homeError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,6 +59,9 @@ mixin _$MainState {
     required TResult Function(CategoriesLoading value) categoriesLoading,
     required TResult Function(CategoriesSuccess value) categoriesSuccess,
     required TResult Function(CategoriesError value) categoriesError,
+    required TResult Function(HomeLoading value) homeLoading,
+    required TResult Function(HomeSuccess value) homeSuccess,
+    required TResult Function(HomeError value) homeError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +70,9 @@ mixin _$MainState {
     TResult? Function(CategoriesLoading value)? categoriesLoading,
     TResult? Function(CategoriesSuccess value)? categoriesSuccess,
     TResult? Function(CategoriesError value)? categoriesError,
+    TResult? Function(HomeLoading value)? homeLoading,
+    TResult? Function(HomeSuccess value)? homeSuccess,
+    TResult? Function(HomeError value)? homeError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,6 +81,9 @@ mixin _$MainState {
     TResult Function(CategoriesLoading value)? categoriesLoading,
     TResult Function(CategoriesSuccess value)? categoriesSuccess,
     TResult Function(CategoriesError value)? categoriesError,
+    TResult Function(HomeLoading value)? homeLoading,
+    TResult Function(HomeSuccess value)? homeSuccess,
+    TResult Function(HomeError value)? homeError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -131,6 +149,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function(CategoriesResponseModel categoriesResponseModel)
         categoriesSuccess,
     required TResult Function(ErrorHandler errorHandler) categoriesError,
+    required TResult Function() homeLoading,
+    required TResult Function(HomeResponseModel homeResponseModel) homeSuccess,
+    required TResult Function(ErrorHandler errorHandler) homeError,
   }) {
     return initial();
   }
@@ -143,6 +164,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function(CategoriesResponseModel categoriesResponseModel)?
         categoriesSuccess,
     TResult? Function(ErrorHandler errorHandler)? categoriesError,
+    TResult? Function()? homeLoading,
+    TResult? Function(HomeResponseModel homeResponseModel)? homeSuccess,
+    TResult? Function(ErrorHandler errorHandler)? homeError,
   }) {
     return initial?.call();
   }
@@ -155,6 +179,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(CategoriesResponseModel categoriesResponseModel)?
         categoriesSuccess,
     TResult Function(ErrorHandler errorHandler)? categoriesError,
+    TResult Function()? homeLoading,
+    TResult Function(HomeResponseModel homeResponseModel)? homeSuccess,
+    TResult Function(ErrorHandler errorHandler)? homeError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -170,6 +197,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function(CategoriesLoading value) categoriesLoading,
     required TResult Function(CategoriesSuccess value) categoriesSuccess,
     required TResult Function(CategoriesError value) categoriesError,
+    required TResult Function(HomeLoading value) homeLoading,
+    required TResult Function(HomeSuccess value) homeSuccess,
+    required TResult Function(HomeError value) homeError,
   }) {
     return initial(this);
   }
@@ -181,6 +211,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function(CategoriesLoading value)? categoriesLoading,
     TResult? Function(CategoriesSuccess value)? categoriesSuccess,
     TResult? Function(CategoriesError value)? categoriesError,
+    TResult? Function(HomeLoading value)? homeLoading,
+    TResult? Function(HomeSuccess value)? homeSuccess,
+    TResult? Function(HomeError value)? homeError,
   }) {
     return initial?.call(this);
   }
@@ -192,6 +225,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(CategoriesLoading value)? categoriesLoading,
     TResult Function(CategoriesSuccess value)? categoriesSuccess,
     TResult Function(CategoriesError value)? categoriesError,
+    TResult Function(HomeLoading value)? homeLoading,
+    TResult Function(HomeSuccess value)? homeSuccess,
+    TResult Function(HomeError value)? homeError,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -248,6 +284,9 @@ class _$CategoriesLoadingImpl implements CategoriesLoading {
     required TResult Function(CategoriesResponseModel categoriesResponseModel)
         categoriesSuccess,
     required TResult Function(ErrorHandler errorHandler) categoriesError,
+    required TResult Function() homeLoading,
+    required TResult Function(HomeResponseModel homeResponseModel) homeSuccess,
+    required TResult Function(ErrorHandler errorHandler) homeError,
   }) {
     return categoriesLoading();
   }
@@ -260,6 +299,9 @@ class _$CategoriesLoadingImpl implements CategoriesLoading {
     TResult? Function(CategoriesResponseModel categoriesResponseModel)?
         categoriesSuccess,
     TResult? Function(ErrorHandler errorHandler)? categoriesError,
+    TResult? Function()? homeLoading,
+    TResult? Function(HomeResponseModel homeResponseModel)? homeSuccess,
+    TResult? Function(ErrorHandler errorHandler)? homeError,
   }) {
     return categoriesLoading?.call();
   }
@@ -272,6 +314,9 @@ class _$CategoriesLoadingImpl implements CategoriesLoading {
     TResult Function(CategoriesResponseModel categoriesResponseModel)?
         categoriesSuccess,
     TResult Function(ErrorHandler errorHandler)? categoriesError,
+    TResult Function()? homeLoading,
+    TResult Function(HomeResponseModel homeResponseModel)? homeSuccess,
+    TResult Function(ErrorHandler errorHandler)? homeError,
     required TResult orElse(),
   }) {
     if (categoriesLoading != null) {
@@ -287,6 +332,9 @@ class _$CategoriesLoadingImpl implements CategoriesLoading {
     required TResult Function(CategoriesLoading value) categoriesLoading,
     required TResult Function(CategoriesSuccess value) categoriesSuccess,
     required TResult Function(CategoriesError value) categoriesError,
+    required TResult Function(HomeLoading value) homeLoading,
+    required TResult Function(HomeSuccess value) homeSuccess,
+    required TResult Function(HomeError value) homeError,
   }) {
     return categoriesLoading(this);
   }
@@ -298,6 +346,9 @@ class _$CategoriesLoadingImpl implements CategoriesLoading {
     TResult? Function(CategoriesLoading value)? categoriesLoading,
     TResult? Function(CategoriesSuccess value)? categoriesSuccess,
     TResult? Function(CategoriesError value)? categoriesError,
+    TResult? Function(HomeLoading value)? homeLoading,
+    TResult? Function(HomeSuccess value)? homeSuccess,
+    TResult? Function(HomeError value)? homeError,
   }) {
     return categoriesLoading?.call(this);
   }
@@ -309,6 +360,9 @@ class _$CategoriesLoadingImpl implements CategoriesLoading {
     TResult Function(CategoriesLoading value)? categoriesLoading,
     TResult Function(CategoriesSuccess value)? categoriesSuccess,
     TResult Function(CategoriesError value)? categoriesError,
+    TResult Function(HomeLoading value)? homeLoading,
+    TResult Function(HomeSuccess value)? homeSuccess,
+    TResult Function(HomeError value)? homeError,
     required TResult orElse(),
   }) {
     if (categoriesLoading != null) {
@@ -394,6 +448,9 @@ class _$CategoriesSuccessImpl implements CategoriesSuccess {
     required TResult Function(CategoriesResponseModel categoriesResponseModel)
         categoriesSuccess,
     required TResult Function(ErrorHandler errorHandler) categoriesError,
+    required TResult Function() homeLoading,
+    required TResult Function(HomeResponseModel homeResponseModel) homeSuccess,
+    required TResult Function(ErrorHandler errorHandler) homeError,
   }) {
     return categoriesSuccess(categoriesResponseModel);
   }
@@ -406,6 +463,9 @@ class _$CategoriesSuccessImpl implements CategoriesSuccess {
     TResult? Function(CategoriesResponseModel categoriesResponseModel)?
         categoriesSuccess,
     TResult? Function(ErrorHandler errorHandler)? categoriesError,
+    TResult? Function()? homeLoading,
+    TResult? Function(HomeResponseModel homeResponseModel)? homeSuccess,
+    TResult? Function(ErrorHandler errorHandler)? homeError,
   }) {
     return categoriesSuccess?.call(categoriesResponseModel);
   }
@@ -418,6 +478,9 @@ class _$CategoriesSuccessImpl implements CategoriesSuccess {
     TResult Function(CategoriesResponseModel categoriesResponseModel)?
         categoriesSuccess,
     TResult Function(ErrorHandler errorHandler)? categoriesError,
+    TResult Function()? homeLoading,
+    TResult Function(HomeResponseModel homeResponseModel)? homeSuccess,
+    TResult Function(ErrorHandler errorHandler)? homeError,
     required TResult orElse(),
   }) {
     if (categoriesSuccess != null) {
@@ -433,6 +496,9 @@ class _$CategoriesSuccessImpl implements CategoriesSuccess {
     required TResult Function(CategoriesLoading value) categoriesLoading,
     required TResult Function(CategoriesSuccess value) categoriesSuccess,
     required TResult Function(CategoriesError value) categoriesError,
+    required TResult Function(HomeLoading value) homeLoading,
+    required TResult Function(HomeSuccess value) homeSuccess,
+    required TResult Function(HomeError value) homeError,
   }) {
     return categoriesSuccess(this);
   }
@@ -444,6 +510,9 @@ class _$CategoriesSuccessImpl implements CategoriesSuccess {
     TResult? Function(CategoriesLoading value)? categoriesLoading,
     TResult? Function(CategoriesSuccess value)? categoriesSuccess,
     TResult? Function(CategoriesError value)? categoriesError,
+    TResult? Function(HomeLoading value)? homeLoading,
+    TResult? Function(HomeSuccess value)? homeSuccess,
+    TResult? Function(HomeError value)? homeError,
   }) {
     return categoriesSuccess?.call(this);
   }
@@ -455,6 +524,9 @@ class _$CategoriesSuccessImpl implements CategoriesSuccess {
     TResult Function(CategoriesLoading value)? categoriesLoading,
     TResult Function(CategoriesSuccess value)? categoriesSuccess,
     TResult Function(CategoriesError value)? categoriesError,
+    TResult Function(HomeLoading value)? homeLoading,
+    TResult Function(HomeSuccess value)? homeSuccess,
+    TResult Function(HomeError value)? homeError,
     required TResult orElse(),
   }) {
     if (categoriesSuccess != null) {
@@ -546,6 +618,9 @@ class _$CategoriesErrorImpl implements CategoriesError {
     required TResult Function(CategoriesResponseModel categoriesResponseModel)
         categoriesSuccess,
     required TResult Function(ErrorHandler errorHandler) categoriesError,
+    required TResult Function() homeLoading,
+    required TResult Function(HomeResponseModel homeResponseModel) homeSuccess,
+    required TResult Function(ErrorHandler errorHandler) homeError,
   }) {
     return categoriesError(errorHandler);
   }
@@ -558,6 +633,9 @@ class _$CategoriesErrorImpl implements CategoriesError {
     TResult? Function(CategoriesResponseModel categoriesResponseModel)?
         categoriesSuccess,
     TResult? Function(ErrorHandler errorHandler)? categoriesError,
+    TResult? Function()? homeLoading,
+    TResult? Function(HomeResponseModel homeResponseModel)? homeSuccess,
+    TResult? Function(ErrorHandler errorHandler)? homeError,
   }) {
     return categoriesError?.call(errorHandler);
   }
@@ -570,6 +648,9 @@ class _$CategoriesErrorImpl implements CategoriesError {
     TResult Function(CategoriesResponseModel categoriesResponseModel)?
         categoriesSuccess,
     TResult Function(ErrorHandler errorHandler)? categoriesError,
+    TResult Function()? homeLoading,
+    TResult Function(HomeResponseModel homeResponseModel)? homeSuccess,
+    TResult Function(ErrorHandler errorHandler)? homeError,
     required TResult orElse(),
   }) {
     if (categoriesError != null) {
@@ -585,6 +666,9 @@ class _$CategoriesErrorImpl implements CategoriesError {
     required TResult Function(CategoriesLoading value) categoriesLoading,
     required TResult Function(CategoriesSuccess value) categoriesSuccess,
     required TResult Function(CategoriesError value) categoriesError,
+    required TResult Function(HomeLoading value) homeLoading,
+    required TResult Function(HomeSuccess value) homeSuccess,
+    required TResult Function(HomeError value) homeError,
   }) {
     return categoriesError(this);
   }
@@ -596,6 +680,9 @@ class _$CategoriesErrorImpl implements CategoriesError {
     TResult? Function(CategoriesLoading value)? categoriesLoading,
     TResult? Function(CategoriesSuccess value)? categoriesSuccess,
     TResult? Function(CategoriesError value)? categoriesError,
+    TResult? Function(HomeLoading value)? homeLoading,
+    TResult? Function(HomeSuccess value)? homeSuccess,
+    TResult? Function(HomeError value)? homeError,
   }) {
     return categoriesError?.call(this);
   }
@@ -607,6 +694,9 @@ class _$CategoriesErrorImpl implements CategoriesError {
     TResult Function(CategoriesLoading value)? categoriesLoading,
     TResult Function(CategoriesSuccess value)? categoriesSuccess,
     TResult Function(CategoriesError value)? categoriesError,
+    TResult Function(HomeLoading value)? homeLoading,
+    TResult Function(HomeSuccess value)? homeSuccess,
+    TResult Function(HomeError value)? homeError,
     required TResult orElse(),
   }) {
     if (categoriesError != null) {
@@ -623,5 +713,475 @@ abstract class CategoriesError implements MainState {
   ErrorHandler get errorHandler;
   @JsonKey(ignore: true)
   _$$CategoriesErrorImplCopyWith<_$CategoriesErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$HomeLoadingImplCopyWith<$Res> {
+  factory _$$HomeLoadingImplCopyWith(
+          _$HomeLoadingImpl value, $Res Function(_$HomeLoadingImpl) then) =
+      __$$HomeLoadingImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$HomeLoadingImplCopyWithImpl<$Res>
+    extends _$MainStateCopyWithImpl<$Res, _$HomeLoadingImpl>
+    implements _$$HomeLoadingImplCopyWith<$Res> {
+  __$$HomeLoadingImplCopyWithImpl(
+      _$HomeLoadingImpl _value, $Res Function(_$HomeLoadingImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$HomeLoadingImpl implements HomeLoading {
+  const _$HomeLoadingImpl();
+
+  @override
+  String toString() {
+    return 'MainState.homeLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$HomeLoadingImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() categoriesLoading,
+    required TResult Function(CategoriesResponseModel categoriesResponseModel)
+        categoriesSuccess,
+    required TResult Function(ErrorHandler errorHandler) categoriesError,
+    required TResult Function() homeLoading,
+    required TResult Function(HomeResponseModel homeResponseModel) homeSuccess,
+    required TResult Function(ErrorHandler errorHandler) homeError,
+  }) {
+    return homeLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? categoriesLoading,
+    TResult? Function(CategoriesResponseModel categoriesResponseModel)?
+        categoriesSuccess,
+    TResult? Function(ErrorHandler errorHandler)? categoriesError,
+    TResult? Function()? homeLoading,
+    TResult? Function(HomeResponseModel homeResponseModel)? homeSuccess,
+    TResult? Function(ErrorHandler errorHandler)? homeError,
+  }) {
+    return homeLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? categoriesLoading,
+    TResult Function(CategoriesResponseModel categoriesResponseModel)?
+        categoriesSuccess,
+    TResult Function(ErrorHandler errorHandler)? categoriesError,
+    TResult Function()? homeLoading,
+    TResult Function(HomeResponseModel homeResponseModel)? homeSuccess,
+    TResult Function(ErrorHandler errorHandler)? homeError,
+    required TResult orElse(),
+  }) {
+    if (homeLoading != null) {
+      return homeLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(CategoriesLoading value) categoriesLoading,
+    required TResult Function(CategoriesSuccess value) categoriesSuccess,
+    required TResult Function(CategoriesError value) categoriesError,
+    required TResult Function(HomeLoading value) homeLoading,
+    required TResult Function(HomeSuccess value) homeSuccess,
+    required TResult Function(HomeError value) homeError,
+  }) {
+    return homeLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(CategoriesLoading value)? categoriesLoading,
+    TResult? Function(CategoriesSuccess value)? categoriesSuccess,
+    TResult? Function(CategoriesError value)? categoriesError,
+    TResult? Function(HomeLoading value)? homeLoading,
+    TResult? Function(HomeSuccess value)? homeSuccess,
+    TResult? Function(HomeError value)? homeError,
+  }) {
+    return homeLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(CategoriesLoading value)? categoriesLoading,
+    TResult Function(CategoriesSuccess value)? categoriesSuccess,
+    TResult Function(CategoriesError value)? categoriesError,
+    TResult Function(HomeLoading value)? homeLoading,
+    TResult Function(HomeSuccess value)? homeSuccess,
+    TResult Function(HomeError value)? homeError,
+    required TResult orElse(),
+  }) {
+    if (homeLoading != null) {
+      return homeLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HomeLoading implements MainState {
+  const factory HomeLoading() = _$HomeLoadingImpl;
+}
+
+/// @nodoc
+abstract class _$$HomeSuccessImplCopyWith<$Res> {
+  factory _$$HomeSuccessImplCopyWith(
+          _$HomeSuccessImpl value, $Res Function(_$HomeSuccessImpl) then) =
+      __$$HomeSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({HomeResponseModel homeResponseModel});
+}
+
+/// @nodoc
+class __$$HomeSuccessImplCopyWithImpl<$Res>
+    extends _$MainStateCopyWithImpl<$Res, _$HomeSuccessImpl>
+    implements _$$HomeSuccessImplCopyWith<$Res> {
+  __$$HomeSuccessImplCopyWithImpl(
+      _$HomeSuccessImpl _value, $Res Function(_$HomeSuccessImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? homeResponseModel = null,
+  }) {
+    return _then(_$HomeSuccessImpl(
+      null == homeResponseModel
+          ? _value.homeResponseModel
+          : homeResponseModel // ignore: cast_nullable_to_non_nullable
+              as HomeResponseModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$HomeSuccessImpl implements HomeSuccess {
+  const _$HomeSuccessImpl(this.homeResponseModel);
+
+  @override
+  final HomeResponseModel homeResponseModel;
+
+  @override
+  String toString() {
+    return 'MainState.homeSuccess(homeResponseModel: $homeResponseModel)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HomeSuccessImpl &&
+            (identical(other.homeResponseModel, homeResponseModel) ||
+                other.homeResponseModel == homeResponseModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, homeResponseModel);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HomeSuccessImplCopyWith<_$HomeSuccessImpl> get copyWith =>
+      __$$HomeSuccessImplCopyWithImpl<_$HomeSuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() categoriesLoading,
+    required TResult Function(CategoriesResponseModel categoriesResponseModel)
+        categoriesSuccess,
+    required TResult Function(ErrorHandler errorHandler) categoriesError,
+    required TResult Function() homeLoading,
+    required TResult Function(HomeResponseModel homeResponseModel) homeSuccess,
+    required TResult Function(ErrorHandler errorHandler) homeError,
+  }) {
+    return homeSuccess(homeResponseModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? categoriesLoading,
+    TResult? Function(CategoriesResponseModel categoriesResponseModel)?
+        categoriesSuccess,
+    TResult? Function(ErrorHandler errorHandler)? categoriesError,
+    TResult? Function()? homeLoading,
+    TResult? Function(HomeResponseModel homeResponseModel)? homeSuccess,
+    TResult? Function(ErrorHandler errorHandler)? homeError,
+  }) {
+    return homeSuccess?.call(homeResponseModel);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? categoriesLoading,
+    TResult Function(CategoriesResponseModel categoriesResponseModel)?
+        categoriesSuccess,
+    TResult Function(ErrorHandler errorHandler)? categoriesError,
+    TResult Function()? homeLoading,
+    TResult Function(HomeResponseModel homeResponseModel)? homeSuccess,
+    TResult Function(ErrorHandler errorHandler)? homeError,
+    required TResult orElse(),
+  }) {
+    if (homeSuccess != null) {
+      return homeSuccess(homeResponseModel);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(CategoriesLoading value) categoriesLoading,
+    required TResult Function(CategoriesSuccess value) categoriesSuccess,
+    required TResult Function(CategoriesError value) categoriesError,
+    required TResult Function(HomeLoading value) homeLoading,
+    required TResult Function(HomeSuccess value) homeSuccess,
+    required TResult Function(HomeError value) homeError,
+  }) {
+    return homeSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(CategoriesLoading value)? categoriesLoading,
+    TResult? Function(CategoriesSuccess value)? categoriesSuccess,
+    TResult? Function(CategoriesError value)? categoriesError,
+    TResult? Function(HomeLoading value)? homeLoading,
+    TResult? Function(HomeSuccess value)? homeSuccess,
+    TResult? Function(HomeError value)? homeError,
+  }) {
+    return homeSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(CategoriesLoading value)? categoriesLoading,
+    TResult Function(CategoriesSuccess value)? categoriesSuccess,
+    TResult Function(CategoriesError value)? categoriesError,
+    TResult Function(HomeLoading value)? homeLoading,
+    TResult Function(HomeSuccess value)? homeSuccess,
+    TResult Function(HomeError value)? homeError,
+    required TResult orElse(),
+  }) {
+    if (homeSuccess != null) {
+      return homeSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HomeSuccess implements MainState {
+  const factory HomeSuccess(final HomeResponseModel homeResponseModel) =
+      _$HomeSuccessImpl;
+
+  HomeResponseModel get homeResponseModel;
+  @JsonKey(ignore: true)
+  _$$HomeSuccessImplCopyWith<_$HomeSuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$HomeErrorImplCopyWith<$Res> {
+  factory _$$HomeErrorImplCopyWith(
+          _$HomeErrorImpl value, $Res Function(_$HomeErrorImpl) then) =
+      __$$HomeErrorImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ErrorHandler errorHandler});
+}
+
+/// @nodoc
+class __$$HomeErrorImplCopyWithImpl<$Res>
+    extends _$MainStateCopyWithImpl<$Res, _$HomeErrorImpl>
+    implements _$$HomeErrorImplCopyWith<$Res> {
+  __$$HomeErrorImplCopyWithImpl(
+      _$HomeErrorImpl _value, $Res Function(_$HomeErrorImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errorHandler = null,
+  }) {
+    return _then(_$HomeErrorImpl(
+      null == errorHandler
+          ? _value.errorHandler
+          : errorHandler // ignore: cast_nullable_to_non_nullable
+              as ErrorHandler,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$HomeErrorImpl implements HomeError {
+  const _$HomeErrorImpl(this.errorHandler);
+
+  @override
+  final ErrorHandler errorHandler;
+
+  @override
+  String toString() {
+    return 'MainState.homeError(errorHandler: $errorHandler)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HomeErrorImpl &&
+            (identical(other.errorHandler, errorHandler) ||
+                other.errorHandler == errorHandler));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, errorHandler);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HomeErrorImplCopyWith<_$HomeErrorImpl> get copyWith =>
+      __$$HomeErrorImplCopyWithImpl<_$HomeErrorImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() categoriesLoading,
+    required TResult Function(CategoriesResponseModel categoriesResponseModel)
+        categoriesSuccess,
+    required TResult Function(ErrorHandler errorHandler) categoriesError,
+    required TResult Function() homeLoading,
+    required TResult Function(HomeResponseModel homeResponseModel) homeSuccess,
+    required TResult Function(ErrorHandler errorHandler) homeError,
+  }) {
+    return homeError(errorHandler);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? categoriesLoading,
+    TResult? Function(CategoriesResponseModel categoriesResponseModel)?
+        categoriesSuccess,
+    TResult? Function(ErrorHandler errorHandler)? categoriesError,
+    TResult? Function()? homeLoading,
+    TResult? Function(HomeResponseModel homeResponseModel)? homeSuccess,
+    TResult? Function(ErrorHandler errorHandler)? homeError,
+  }) {
+    return homeError?.call(errorHandler);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? categoriesLoading,
+    TResult Function(CategoriesResponseModel categoriesResponseModel)?
+        categoriesSuccess,
+    TResult Function(ErrorHandler errorHandler)? categoriesError,
+    TResult Function()? homeLoading,
+    TResult Function(HomeResponseModel homeResponseModel)? homeSuccess,
+    TResult Function(ErrorHandler errorHandler)? homeError,
+    required TResult orElse(),
+  }) {
+    if (homeError != null) {
+      return homeError(errorHandler);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(CategoriesLoading value) categoriesLoading,
+    required TResult Function(CategoriesSuccess value) categoriesSuccess,
+    required TResult Function(CategoriesError value) categoriesError,
+    required TResult Function(HomeLoading value) homeLoading,
+    required TResult Function(HomeSuccess value) homeSuccess,
+    required TResult Function(HomeError value) homeError,
+  }) {
+    return homeError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(CategoriesLoading value)? categoriesLoading,
+    TResult? Function(CategoriesSuccess value)? categoriesSuccess,
+    TResult? Function(CategoriesError value)? categoriesError,
+    TResult? Function(HomeLoading value)? homeLoading,
+    TResult? Function(HomeSuccess value)? homeSuccess,
+    TResult? Function(HomeError value)? homeError,
+  }) {
+    return homeError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(CategoriesLoading value)? categoriesLoading,
+    TResult Function(CategoriesSuccess value)? categoriesSuccess,
+    TResult Function(CategoriesError value)? categoriesError,
+    TResult Function(HomeLoading value)? homeLoading,
+    TResult Function(HomeSuccess value)? homeSuccess,
+    TResult Function(HomeError value)? homeError,
+    required TResult orElse(),
+  }) {
+    if (homeError != null) {
+      return homeError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HomeError implements MainState {
+  const factory HomeError(final ErrorHandler errorHandler) = _$HomeErrorImpl;
+
+  ErrorHandler get errorHandler;
+  @JsonKey(ignore: true)
+  _$$HomeErrorImplCopyWith<_$HomeErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

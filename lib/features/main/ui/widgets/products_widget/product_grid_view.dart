@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:hk4_ecommerce/features/main/ui/widgets/product_grid_view_item.dart';
+import 'package:hk4_ecommerce/features/main/ui/widgets/products_widget/product_grid_view_item.dart';
+
+import '../../../data/models/home_response_model.dart';
 
 class ProductGridView extends StatelessWidget {
-  const ProductGridView({
+  List<Product> products;
+  ProductGridView({
     super.key,
+    required this.products,
   });
 
   @override
@@ -11,25 +15,18 @@ class ProductGridView extends StatelessWidget {
     return GridView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
+      itemCount: products.length,
+      padding: EdgeInsets.zero,
       itemBuilder: (BuildContext context, int index) {
         return ProductGridViewItem(
-            image:
-                'https://student.valuxapps.com/storage/uploads/products/1615440322npwmU.71DVgBTdyLL._SL1500_.jpg',
-            nameProduct: 'nameProduct',
-            price: 10,
-            oldPrice: 10,
-            discount: 10,
-            favoriteIcon: Icon(Icons.favorite),
-            showAddCart: true,
-            isCart: false,
-            addFavorite: () {});
+          product: products[index],
+        );
       },
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 200,
           childAspectRatio: 2 / 3.1,
           crossAxisSpacing: 10,
           mainAxisSpacing: 10),
-      itemCount: 3,
     );
   }
 }

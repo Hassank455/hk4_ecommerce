@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hk4_ecommerce/features/main/data/models/categories_response_model.dart';
 import 'package:hk4_ecommerce/features/main/data/repos/main_repo.dart';
 import 'package:hk4_ecommerce/features/main/logic/main_state.dart';
 
@@ -16,6 +15,19 @@ class MainCubit extends Cubit<MainState> {
       },
       failure: (errorHandler) {
         emit(MainState.categoriesError(errorHandler));
+      },
+    );
+  }
+
+  void getHome() async {
+    emit(const MainState.homeLoading());
+    final response = await _mainRepo.getHome();
+    response.when(
+      success: (homeResponseModel) {
+        emit(MainState.homeSuccess(homeResponseModel));
+      },
+      failure: (errorHandler) {
+        emit(MainState.homeError(errorHandler));
       },
     );
   }

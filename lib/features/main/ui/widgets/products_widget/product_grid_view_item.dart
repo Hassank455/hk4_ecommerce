@@ -8,31 +8,13 @@ import 'package:hk4_ecommerce/core/value/app_strings.dart';
 import 'package:hk4_ecommerce/core/widgets/cached_network_image.dart';
 import 'package:hk4_ecommerce/core/widgets/custom_text.dart';
 
+import '../../../data/models/home_response_model.dart' as p;
+
 class ProductGridViewItem extends StatelessWidget {
-  String image;
-  String nameProduct;
-  num price;
-  num oldPrice;
-  num discount;
-  Icon favoriteIcon;
-  bool? isCart;
-  VoidCallback? addCart;
-  bool showAddCart;
-  VoidCallback addFavorite;
-  GestureTapCallback? onPressed;
+  p.Product product;
   ProductGridViewItem({
     super.key,
-    required this.image,
-    required this.nameProduct,
-    required this.price,
-    required this.oldPrice,
-    required this.discount,
-    required this.favoriteIcon,
-    this.isCart,
-    this.addCart,
-    required this.showAddCart,
-    required this.addFavorite,
-    this.onPressed,
+    required this.product,
   });
 
   @override
@@ -41,15 +23,11 @@ class ProductGridViewItem extends StatelessWidget {
       width: double.infinity,
       height: double.infinity,
       decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.grey.withOpacity(0.5),
+        ),
         color: ColorsManager.white,
         borderRadius: BorderRadius.circular(AppSize.s10.r),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 2,
-            blurRadius: 1,
-          ),
-        ],
       ),
       child: Stack(
         children: [
@@ -61,9 +39,9 @@ class ProductGridViewItem extends StatelessWidget {
                 Expanded(
                   flex: 4,
                   child: GestureDetector(
-                    onTap: onPressed,
+                    onTap: () {},
                     child: CustomCachedNetworkImage(
-                      urlImage: image,
+                      urlImage: product.image ?? '',
                       height: 100,
                       width: 100,
                       borderNumber: 1,
@@ -78,7 +56,7 @@ class ProductGridViewItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        nameProduct,
+                        product.name ?? '',
                         style: TextStyle(
                           height: 1.2,
                         ),
@@ -88,15 +66,15 @@ class ProductGridViewItem extends StatelessWidget {
                       Row(
                         children: [
                           CustomText(
-                            text: ('${price.toString()} EGP'),
+                            text: ('${product.price.toString()} EGP'),
                             style: const TextStyle(
                                 fontWeight: FontWeight.w700,
                                 color: ColorsManager.mainDarkBlue),
                           ),
                           const Spacer(),
-                          if (discount != 0)
+                          if (product.discount != 0)
                             CustomText(
-                              text: '${oldPrice.toString()} EGP',
+                              text: '${product.oldPrice.toString()} EGP',
                               style: const TextStyle(
                                 decoration: TextDecoration.lineThrough,
                                 color: Colors.grey,
@@ -104,31 +82,28 @@ class ProductGridViewItem extends StatelessWidget {
                             ),
                         ],
                       ),
-                      showAddCart
-                          ? SizedBox(
-                              width: double.infinity,
-                              child: isCart!
-                                  ? ElevatedButton.icon(
-                                      onPressed: addCart,
-                                      label: CustomText(text: AppStrings.added),
-                                      icon: const Icon(Icons.check),
-                                      style: ButtonStyle(
-                                        backgroundColor:
-                                            MaterialStateProperty.all(
-                                                Colors.green.shade300),
-                                      ),
-                                    )
-                                  : ElevatedButton.icon(
-                                      onPressed: addCart,
-                                      label: CustomText(
-                                        text: AppStrings.addToCart,
-                                        style: TextStyles.font12DarkBlueRegular,
-                                      ),
-                                      icon: const Icon(
-                                          Icons.add_shopping_cart_outlined),
-                                    ),
-                            )
-                          : Container(),
+                      SizedBox(
+                        width: double.infinity,
+                        child: product.inCart!
+                            ? ElevatedButton.icon(
+                                onPressed: () {},
+                                label: CustomText(text: AppStrings.added),
+                                icon: const Icon(Icons.check),
+                                style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(
+                                      Colors.green.shade300),
+                                ),
+                              )
+                            : ElevatedButton.icon(
+                                onPressed: () {},
+                                label: CustomText(
+                                  text: AppStrings.addToCart,
+                                  style: TextStyles.font12DarkBlueRegular,
+                                ),
+                                icon: const Icon(
+                                    Icons.add_shopping_cart_outlined),
+                              ),
+                      ),
                     ],
                   ),
                 ),
@@ -138,10 +113,10 @@ class ProductGridViewItem extends StatelessWidget {
           Row(
             children: [
               const Spacer(),
-              IconButton(icon: favoriteIcon, onPressed: addFavorite),
+              IconButton(icon: Icon(Icons.favorite), onPressed: () {}),
             ],
           ),
-          if (discount != 0)
+          if (product.discount != 0)
             const Banner(
               message: 'SALE',
               location: BannerLocation.topStart,

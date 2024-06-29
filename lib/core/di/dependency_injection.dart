@@ -5,6 +5,8 @@ import 'package:hk4_ecommerce/core/networking/dio_factory.dart';
 import 'package:hk4_ecommerce/features/home/logic/cubit/home_cubit.dart';
 import 'package:hk4_ecommerce/features/login/data/repos/login_repo.dart';
 import 'package:hk4_ecommerce/features/login/logic/cubit/login_cubit.dart';
+import 'package:hk4_ecommerce/features/main/data/repos/main_repo.dart';
+import 'package:hk4_ecommerce/features/main/logic/main_cubit.dart';
 import 'package:hk4_ecommerce/features/onboarding/logic/cubit/onboarding_cubit.dart';
 import 'package:hk4_ecommerce/features/register/data/repos/register_repo.dart';
 import 'package:hk4_ecommerce/features/register/logic/cubit/register_cubit.dart';
@@ -16,8 +18,8 @@ final getIt = GetIt.instance;
 Future<void> setupGetIt() async {
   // Dio & ApiService
 
- Dio dio = DioFactory.getDio();
- getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
+  Dio dio = DioFactory.getDio();
+  getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
 
   // onboarding
   getIt.registerLazySingleton<OnboardingCubit>(() => OnboardingCubit());
@@ -31,6 +33,11 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<RegisterCubit>(() => RegisterCubit(getIt()));
 
   //home
-    getIt.registerFactory<HomeCubit>(() => HomeCubit());
+  getIt.registerFactory<HomeCubit>(() => HomeCubit());
 
+  // Main
+  getIt.registerLazySingleton<MainRepo>(() => MainRepo(getIt()));
+  getIt.registerLazySingleton<MainCubit>(() => MainCubit(getIt())
+    ..getHome()
+    ..getCategories());
 }
