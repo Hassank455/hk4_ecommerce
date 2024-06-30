@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hk4_ecommerce/core/value/app_size.dart';
 import 'package:hk4_ecommerce/core/widgets/cached_network_image.dart';
+import '../../data/models/home_response_model.dart' as b;
 
 class BannersHomeWidget extends StatelessWidget {
-  const BannersHomeWidget({super.key});
+
+  List<b.Banner> bannerList;
+  BannersHomeWidget({super.key, required this.bannerList});
+
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +17,10 @@ class BannersHomeWidget extends StatelessWidget {
       width: double.infinity,
       height: AppSize.s180.h,
       child: CarouselSlider.builder(
-        itemCount: 3,
+        itemCount: bannerList.length,
         itemBuilder: (context, index, _) => CustomCachedNetworkImage(
           urlImage:
-              'https://as2.ftcdn.net/v2/jpg/03/48/05/47/1000_F_348054737_Tv5fl9LQnZnzDUwskKVKd5Mzj4SjGFxa.jpg',
+              bannerList[index].image ?? '',
           width: double.infinity,
           height: AppSize.s80.h,
           fit: BoxFit.fill,

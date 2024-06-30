@@ -17,99 +17,98 @@ class ProductShimmerLoading extends StatelessWidget {
       itemCount: 6,
       padding: EdgeInsets.zero,
       itemBuilder: (BuildContext context, int index) {
-        return Shimmer.fromColors(
-            baseColor: ColorsManager.lightGray,
-            highlightColor: Colors.white,
-            child: Container(
-              width: double.infinity,
-              height: double.infinity,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.grey.withOpacity(0.5),
-                ),
-                color: ColorsManager.white,
-                borderRadius: BorderRadius.circular(AppSize.s10.r),
-              ),
-              child: Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(6.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Shimmer.fromColors(
-                          baseColor: ColorsManager.lightGray,
-                          highlightColor: Colors.white,
-                          child: Container(
-                            height: AppSize.s100.h,
-                            width: AppSize.s100.w,
-                            decoration: BoxDecoration(
-                              color: ColorsManager.lightGray,
+        return Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Colors.grey.withOpacity(0.5),
+            ),
+            color: ColorsManager.white,
+            borderRadius: BorderRadius.circular(AppSize.s10.r),
+          ),
+          child: Stack(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(6.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Shimmer.fromColors(
+                      baseColor: ColorsManager.lightGray,
+                      highlightColor: Colors.white,
+                      child: Container(
+                        height: AppSize.s120.h,
+                        width: AppSize.s100.w,
+                        decoration: const BoxDecoration(
+                          color: ColorsManager.lightGray,
+                        ),
+                      ),
+                    ),
+                    verticalSpace(AppSize.s8),
+                    Expanded(
+                      flex: 3,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Shimmer.fromColors(
+                            baseColor: ColorsManager.lightGray,
+                            highlightColor: Colors.white,
+                            child: Container(
+                              height: 15.h,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: ColorsManager.lightGray,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
                             ),
                           ),
-                        ),
-                        verticalSpace(AppSize.s8),
-                        Expanded(
-                          flex: 3,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Shimmer.fromColors(
-                                baseColor: ColorsManager.lightGray,
-                                highlightColor: Colors.white,
-                                child: Container(
-                                  height: 14.h,
-                                  width: 50.w,
-                                  decoration: BoxDecoration(
-                                    color: ColorsManager.lightGray,
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                ),
+                          Shimmer.fromColors(
+                            baseColor: ColorsManager.lightGray,
+                            highlightColor: Colors.white,
+                            child: Container(
+                              height: 15.h,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: ColorsManager.lightGray,
+                                borderRadius: BorderRadius.circular(12),
                               ),
-                              Row(
-                                children: [
-                                  Shimmer.fromColors(
-                                    baseColor: ColorsManager.lightGray,
-                                    highlightColor: Colors.white,
-                                    child: Container(
-                                      height: 14.h,
-                                      width: 50.w,
-                                      decoration: BoxDecoration(
-                                        color: ColorsManager.lightGray,
-                                        borderRadius: BorderRadius.circular(12),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Shimmer.fromColors(
-                                baseColor: ColorsManager.lightGray,
-                                highlightColor: Colors.white,
-                                child: Container(
-                                  height: 30.h,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: ColorsManager.lightGray,
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
-                        ),
-                      ],
+                          Shimmer.fromColors(
+                            baseColor: ColorsManager.lightGray,
+                            highlightColor: Colors.white,
+                            child: Container(
+                              height: 14.h,
+                              width: 80.w,
+                              decoration: BoxDecoration(
+                                color: ColorsManager.lightGray,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                          ),
+                          Shimmer.fromColors(
+                            baseColor: ColorsManager.lightGray,
+                            highlightColor: Colors.white,
+                            child: Container(
+                              height: 30.h,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: ColorsManager.lightGray,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  Row(
-                    children: [
-                      const Spacer(),
-                      IconButton(icon: Icon(Icons.favorite), onPressed: () {}),
-                    ],
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ));
+            ],
+          ),
+        );
       },
       gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 200,

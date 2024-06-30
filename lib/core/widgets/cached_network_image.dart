@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hk4_ecommerce/core/theming/colors.dart';
 import 'package:shimmer/shimmer.dart';
 
 // ignore: must_be_immutable
@@ -10,7 +11,6 @@ class CustomCachedNetworkImage extends StatelessWidget {
   final double height;
   final double borderNumber;
   final BoxFit? fit;
-  bool withIndicator;
 
   CustomCachedNetworkImage({
     required this.urlImage,
@@ -19,7 +19,6 @@ class CustomCachedNetworkImage extends StatelessWidget {
     required this.borderNumber,
     super.key,
     this.fit,
-    this.withIndicator = true,
   });
 
   @override
@@ -40,23 +39,21 @@ class CustomCachedNetworkImage extends StatelessWidget {
             ),
           ),
         ),
-        placeholder: (context, url) => Container(
-          width: ScreenUtil().setWidth(width),
-          height: ScreenUtil().setHeight(height),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(borderNumber.r),
-          ),
-          child: withIndicator
-              ? Shimmer.fromColors(
-                  baseColor: Colors.grey.withOpacity(0.25),
-                  highlightColor: Colors.grey.withOpacity(0.1),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(borderNumber.r),
-                        color: Theme.of(context).cardColor),
-                  ))
-              : null,
-        ),
+        progressIndicatorBuilder: (context, url, downloadProgress) {
+          return Shimmer.fromColors(
+            baseColor: ColorsManager.lightGray,
+            highlightColor: Colors.white,
+            child: Container(
+              width: width.w,
+              height: height.h,
+              decoration: BoxDecoration(
+                shape: BoxShape.rectangle,
+                borderRadius: BorderRadius.circular(borderNumber.r),
+                color: Colors.white,
+              ),
+            ),
+          );
+        },
         errorWidget: (context, url, error) => Container(
           width: ScreenUtil().setWidth(width),
           height: ScreenUtil().setHeight(height),

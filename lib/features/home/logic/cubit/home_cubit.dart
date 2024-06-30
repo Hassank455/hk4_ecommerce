@@ -16,12 +16,11 @@ class HomeCubit extends Cubit<HomeState> {
   List<Widget> widgetOptions = <Widget>[
     BlocProvider(
       create: (_) => getIt<MainCubit>(),
-      child: MainScreen(),
+      child: const MainScreen(),
     ),
-    MainScreen(),
-    CartScreen(),
-    FavoriteScreen(),
-    ProfileScreen(),
+    const CartScreen(),
+    const FavoriteScreen(),
+    const ProfileScreen(),
   ];
 
   int indexScreen = 0;

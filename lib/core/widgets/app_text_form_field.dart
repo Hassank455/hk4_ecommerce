@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hk4_ecommerce/core/theming/colors.dart';
 import 'package:hk4_ecommerce/core/theming/styles.dart';
-import 'package:hk4_ecommerce/core/widgets/custom_image.dart';
 
 class AppTextFormField extends StatefulWidget {
   final EdgeInsetsGeometry? contentPadding;

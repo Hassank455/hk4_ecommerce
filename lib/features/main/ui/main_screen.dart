@@ -6,7 +6,7 @@ import 'package:hk4_ecommerce/features/main/ui/widgets/banners_home_widget.dart'
 import 'package:hk4_ecommerce/features/main/ui/widgets/categories_widget/categories_bloc_builder.dart';
 import 'package:hk4_ecommerce/features/main/ui/widgets/home_top_bar.dart';
 import 'package:hk4_ecommerce/features/main/ui/widgets/products_widget/product_bloc_builder.dart';
-  
+
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
 
@@ -25,11 +25,9 @@ class MainScreen extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                verticalSpace(AppSize.s20),
+                verticalSpace(AppSize.s10),
                 const HomeTopBar(),
                 verticalSpace(AppSize.s20),
-                const BannersHomeWidget(),
-                verticalSpace(AppSize.s10),
                 const CategoriesBlocBuilder(),
                 verticalSpace(AppSize.s10),
                 const ProductBlocBuilder(),

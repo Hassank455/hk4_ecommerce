@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hk4_ecommerce/core/helpers/helper.dart';
@@ -22,7 +20,9 @@ class CategoriesBlocBuilder extends StatelessWidget {
       listener: (context, state) {
         state.maybeWhen(
           categoriesError: (errorHandler) {
-            setupError(context: context, text: errorHandler.toString());
+            setupError(
+                context: context,
+                text: errorHandler.apiErrorModel.message ?? '');
           },
           orElse: () {
             return const SizedBox.shrink();
@@ -30,14 +30,19 @@ class CategoriesBlocBuilder extends StatelessWidget {
         );
       },
       builder: (context, state) {
-        return state.maybeWhen(categoriesLoading: () {
-          log('loading');
-          return setupLoading();
-        }, categoriesSuccess: (CategoriesResponseModel categoriesDataList) {
-          return setupSuccess(categoriesDataList.data.categoriesList);
-        }, orElse: () {
-          return const SizedBox.shrink();
-        });
+        return state is CategoriesSuccess
+            ? setupSuccess(state.categoriesResponseModel.data.categoriesList)
+            : state is CategoriesError
+                ? const SizedBox.shrink()
+                : setupLoading();
+        // return state.maybeWhen(categoriesLoading: () {
+        //   log('loading');
+        //   return setupLoading();
+        // }, categoriesSuccess: (CategoriesResponseModel categoriesDataList) {
+        //   return setupSuccess(categoriesDataList.data.categoriesList);
+        // }, orElse: () {
+        //   return const SizedBox.shrink();
+        // });
       },
     );
     // return BlocBuilder<MainCubit, MainState>(

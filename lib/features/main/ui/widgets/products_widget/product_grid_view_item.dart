@@ -26,7 +26,7 @@ class ProductGridViewItem extends StatelessWidget {
         border: Border.all(
           color: Colors.grey.withOpacity(0.5),
         ),
-        color: ColorsManager.white,
+        color: ColorsManager.moreLightGray,
         borderRadius: BorderRadius.circular(AppSize.s10.r),
       ),
       child: Stack(
@@ -45,6 +45,7 @@ class ProductGridViewItem extends StatelessWidget {
                       height: 100,
                       width: 100,
                       borderNumber: 1,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
