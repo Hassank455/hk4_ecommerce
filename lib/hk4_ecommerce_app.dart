@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hk4_ecommerce/core/helpers/constants.dart';
 import 'package:hk4_ecommerce/core/routing/app_router.dart';
 import 'package:hk4_ecommerce/core/routing/routes.dart';
 import 'package:hk4_ecommerce/core/theming/colors.dart';
@@ -22,8 +23,7 @@ class Hk4EcommerceApp extends StatelessWidget {
             fontFamily: 'Poppins',
           ),
           debugShowCheckedModeBanner: false,
-          //initialRoute: Routes.onBoardingScreen,
-          initialRoute: Routes.homeScreen,
+          initialRoute: isLoggedInUser ? Routes.homeScreen : Routes.loginScreen,
           onGenerateRoute: appRouter.generateRoute,
         ));
   }

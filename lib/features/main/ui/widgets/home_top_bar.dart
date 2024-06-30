@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:hk4_ecommerce/core/theming/colors.dart';
 import 'package:hk4_ecommerce/core/value/app_images.dart';
 import 'package:hk4_ecommerce/core/value/app_size.dart';
