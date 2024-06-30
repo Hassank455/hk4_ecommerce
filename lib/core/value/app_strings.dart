@@ -12,6 +12,8 @@ class AppStrings {
   static const phone = 'Phone';
   static const language = 'Language';
   static const theme = 'Theme';
+  static const termsConditions = 'Terms & Conditions';
+  static const privacyPolicy = 'Privacy Policy';
   static const logout = 'Logout';
   static const added = 'Added';
   static const yourProfile = 'Your Profile';

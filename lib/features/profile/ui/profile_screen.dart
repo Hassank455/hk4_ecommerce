@@ -48,6 +48,12 @@ class ProfileScreen extends StatelessWidget {
                         title: AppStrings.theme,
                       ),
                       ItemListTileWidget(
+                        title: AppStrings.privacyPolicy,
+                      ),
+                      ItemListTileWidget(
+                        title: AppStrings.termsConditions,
+                      ),
+                      ItemListTileWidget(
                         title: AppStrings.logout,
                         isLogout: true,
                       ),
