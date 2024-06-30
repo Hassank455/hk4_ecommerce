@@ -8,6 +8,7 @@ import 'package:hk4_ecommerce/core/value/app_strings.dart';
 import 'package:hk4_ecommerce/core/widgets/cached_network_image.dart';
 import 'package:hk4_ecommerce/core/widgets/custom_text.dart';
 import 'package:hk4_ecommerce/features/profile/ui/widgets/item_list_tile_widget.dart';
+import 'package:hk4_ecommerce/features/profile/ui/widgets/profile_user_data_widget.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -21,37 +22,44 @@ class ProfileScreen extends StatelessWidget {
               vertical: AppSize.s20.h, horizontal: AppSize.s20.w),
           child: Center(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                verticalSpace(AppSize.s40),
-                CustomCachedNetworkImage(
-                  urlImage:
-                      'https://st3.depositphotos.com/15648834/17930/v/450/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg',
-                  height: AppSize.s80.h,
-                  width: AppSize.s80.h,
-                  borderNumber: AppSize.s0,
-                ),
-                verticalSpace(AppSize.s20),
+                verticalSpace(AppSize.s10),
                 CustomText(
-                  text: 'Hassan Kamal Almsaudder',
-                  style: TextStyles.font16BlackBold,
+                  text: AppStrings.yourProfile,
+                  style: TextStyles.font18DarkBlueBold,
                 ),
+                verticalSpace(AppSize.s10),
+                const ProfileUserDataWidget(),
                 verticalSpace(AppSize.s20),
-                ItemListTileWidget(
-                  icon: Icons.edit,
-                  title: AppStrings.editProfile,
-                ),
-                verticalSpace(AppSize.s10),
-                const Divider(
-                  color: ColorsManager.lightGray,
-                  height: 0.2,
-                ),
-                verticalSpace(AppSize.s10),
-                ItemListTileWidget(
-                  icon: Icons.edit,
-                  title: AppStrings.editProfile,
-                ),
+                Container(
+                  padding: const EdgeInsets.all(AppSize.s10),
+                  decoration: BoxDecoration(
+                    color: ColorsManager.lighterGray,
+                    borderRadius: BorderRadius.circular(AppSize.s8.r),
+                  ),
+                  child: Column(
+                    children: [
+                      ItemListTileWidget(
+                        title: AppStrings.language,
+                      ),
+                      ItemListTileWidget(
+                        title: AppStrings.theme,
+                      ),
+                      ItemListTileWidget(
+                        title: AppStrings.privacyPolicy,
+                      ),
+                      ItemListTileWidget(
+                        title: AppStrings.termsConditions,
+                      ),
+                      ItemListTileWidget(
+                        title: AppStrings.logout,
+                        isLogout: true,
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
           ),
