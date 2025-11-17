@@ -21,4 +21,9 @@ class MainState with _$MainState {
   const factory MainState.homeSuccess(HomeResponseModel homeResponseModel) =
       HomeSuccess;
   const factory MainState.homeError(ErrorHandler errorHandler) = HomeError;
+
+
+  // const factory MainState.success() = Success;
+  // const factory MainState.loading() = Loading;
+
 }

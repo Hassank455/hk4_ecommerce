@@ -37,7 +37,5 @@ Future<void> setupGetIt() async {
 
   // Main
   getIt.registerLazySingleton<MainRepo>(() => MainRepo(getIt()));
-  getIt.registerLazySingleton<MainCubit>(() => MainCubit(getIt())
-    ..getCategories()
-    ..getHome());
+  getIt.registerLazySingleton<MainCubit>(() => MainCubit(getIt())..getCategories()..getHome());
 }

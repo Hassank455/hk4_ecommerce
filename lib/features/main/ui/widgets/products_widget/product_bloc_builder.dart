@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,7 +9,6 @@ import 'package:hk4_ecommerce/features/main/data/models/home_response_model.dart
 import 'package:hk4_ecommerce/features/main/logic/main_cubit.dart';
 import 'package:hk4_ecommerce/features/main/logic/main_state.dart';
 import 'package:hk4_ecommerce/features/main/ui/widgets/banners_home_widget.dart';
-import 'package:hk4_ecommerce/features/main/ui/widgets/categories_widget/categories_shimmer_loading.dart';
 import 'package:hk4_ecommerce/features/main/ui/widgets/products_widget/product_grid_view.dart';
 import 'package:hk4_ecommerce/features/main/ui/widgets/products_widget/product_shimmer_loading.dart';
 import 'package:shimmer/shimmer.dart';
@@ -21,60 +18,64 @@ class ProductBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // return BlocConsumer<MainCubit, MainState>(
+    //   buildWhen: (previous, current) =>
+    //       current is HomeLoading ||
+    //       current is HomeSuccess ||
+    //       current is HomeError,
+    //   listener: (context, state) {
+    //     state.maybeWhen(
+    //       homeError: (errorHandler) {
+    //         setupError(
+    //             context: context,
+    //             text: errorHandler.apiErrorModel.message ?? '');
+    //       },
+    //       orElse: () {
+    //         return const SizedBox.shrink();
+    //       },
+    //     );
+    //   },
+    //   builder: (context, state) {
+    //     return state is HomeSuccess
+    //         ? setupSuccess(state.homeResponseModel.data!)
+    //         : state is HomeError
+    //             ? const SizedBox.shrink()
+    //             : setupLoading();
+
+    //     // return state.maybeWhen(
+    //     //   homeLoading: () {
+    //     //   log('Home is loading');
+    //     //   return setupLoading();
+    //     // }, homeSuccess: (HomeResponseModel homeResponseModel) {
+    //     //   return setupSuccess(homeResponseModel.data!);
+    //     // }, orElse: () {
+    //     //   return const SizedBox.shrink();
+    //     // });
+    //   },
+    // );
+
     return BlocConsumer<MainCubit, MainState>(
       buildWhen: (previous, current) =>
           current is HomeLoading ||
           current is HomeSuccess ||
           current is HomeError,
-      listener: (context, state) {
-        state.maybeWhen(
-          homeError: (errorHandler) {
-            setupError(
-                context: context,
-                text: errorHandler.apiErrorModel.message ?? '');
-          },
-          orElse: () {
-            return const SizedBox.shrink();
-          },
-        );
-      },
+      listenWhen: (previous, current) =>
+          current is HomeLoading ||
+          current is HomeSuccess ||
+          current is HomeError,
+      listener: (context, state) {},
       builder: (context, state) {
-        return state is HomeSuccess
-            ? setupSuccess(state.homeResponseModel.data!)
-            : state is HomeError
-                ? const SizedBox.shrink()
-                : setupLoading();
-
-        // return state.maybeWhen(
-        //   homeLoading: () {
-        //   log('Home is loading');
-        //   return setupLoading();
-        // }, homeSuccess: (HomeResponseModel homeResponseModel) {
-        //   return setupSuccess(homeResponseModel.data!);
-        // }, orElse: () {
-        //   return const SizedBox.shrink();
-        // });
+        return state.maybeWhen(homeLoading: () {
+          return setupLoading();
+        }, homeSuccess: (HomeResponseModel homeResponseModel) {
+          return setupSuccess(homeResponseModel.data!);
+        },
+            //  homeError: (errorHandler) => setupError(context: context),
+            orElse: () {
+          return const SizedBox.shrink();
+        });
       },
     );
-    // return BlocBuilder<MainCubit, MainState>(
-    //   buildWhen: (previous, current) =>
-    //       current is CategoriesLoading ||
-    //       current is CategoriesSuccess ||
-    //       current is CategoriesError,
-    //   builder: (context, state) {
-    //     return state.maybeWhen(
-    //         categoriesLoading: () {
-    //           return setupLoading();
-    //         },
-    //         categoriesSuccess: (CategoriesResponseModel categoriesDataList) {
-    //           return setupSuccess(categoriesDataList.data.categoriesList);
-    //         },
-    //         categoriesError: (errorHandler) => setupError(context: context),
-    //         orElse: () {
-    //           return const SizedBox.shrink();
-    //         });
-    //   },
-    // );
   }
 
   Widget setupLoading() {

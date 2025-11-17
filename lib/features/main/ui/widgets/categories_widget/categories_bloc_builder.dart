@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hk4_ecommerce/core/helpers/helper.dart';
@@ -12,56 +14,73 @@ class CategoriesBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<MainCubit, MainState>(
-      buildWhen: (previous, current) =>
-          current is CategoriesLoading ||
-          current is CategoriesSuccess ||
-          current is CategoriesError,
-      listener: (context, state) {
-        state.maybeWhen(
-          categoriesError: (errorHandler) {
-            setupError(
-                context: context,
-                text: errorHandler.apiErrorModel.message ?? '');
-          },
-          orElse: () {
-            return const SizedBox.shrink();
-          },
-        );
-      },
-      builder: (context, state) {
-        return state is CategoriesSuccess
-            ? setupSuccess(state.categoriesResponseModel.data.categoriesList)
-            : state is CategoriesError
-                ? const SizedBox.shrink()
-                : setupLoading();
-        // return state.maybeWhen(categoriesLoading: () {
-        //   log('loading');
-        //   return setupLoading();
-        // }, categoriesSuccess: (CategoriesResponseModel categoriesDataList) {
-        //   return setupSuccess(categoriesDataList.data.categoriesList);
-        // }, orElse: () {
-        //   return const SizedBox.shrink();
-        // });
-      },
-    );
-    // return BlocBuilder<MainCubit, MainState>(
+    // return BlocConsumer<MainCubit, MainState>(
     //   buildWhen: (previous, current) =>
     //       current is CategoriesLoading ||
     //       current is CategoriesSuccess ||
     //       current is CategoriesError,
+    //   listener: (context, state) {
+    //     state.maybeWhen(
+    //       categoriesError: (errorHandler) {
+    //         setupError(
+    //             context: context,
+    //             text: errorHandler.apiErrorModel.message ?? '');
+    //       },
+    //       orElse: () {
+    //         return const SizedBox.shrink();
+    //       },
+    //     );
+    //   },
     //   builder: (context, state) {
-    //     return state.maybeWhen(
-    //         categoriesLoading: () {
-    //           return setupLoading();
-    //         },
-    //         categoriesSuccess: (CategoriesResponseModel categoriesDataList) {
-    //           return setupSuccess(categoriesDataList.data.categoriesList);
-    //         },
-    //         categoriesError: (errorHandler) => setupError(context: context),
+    //     return state is CategoriesSuccess
+    //         ? setupSuccess(state.categoriesResponseModel.data.categoriesList)
+    //         : state is CategoriesError
+    //             ? const SizedBox.shrink()
+    //             : setupLoading();
+    return BlocBuilder<MainCubit, MainState>(
+      buildWhen: (previous, current) =>
+          current is CategoriesLoading ||
+          current is CategoriesSuccess ||
+          current is CategoriesError,
+      builder: (context, state) {
+        return state.maybeWhen(categoriesLoading: () {
+          log('loading');
+          return setupLoading();
+        }, categoriesSuccess: (CategoriesResponseModel categoriesDataList) {
+          return setupSuccess(categoriesDataList.data.categoriesList);
+        }, orElse: () {
+          return const SizedBox.shrink();
+        });
+      },
+    );
+    // return BlocConsumer<MainCubit, MainState>(
+    //   buildWhen: (previous, current) =>
+    //       current is CategoriesLoading ||
+    //       current is CategoriesSuccess ||
+    //       current is CategoriesError,
+    //   listenWhen: (previous, current) =>
+    //       current is CategoriesLoading ||
+    //       current is CategoriesSuccess ||
+    //       current is CategoriesError,
+    //   listener: (context, state) {},
+    //   builder: (context, state) {
+    //     // if(state is CategoriesLoading){
+    //     //   return const CategoriesShimmerLoading();
+    //     // } else if(state is CategoriesSuccess){
+    //     //   return setupSuccess(state.categoriesResponseModel.data.categoriesList);
+    //     // } else {
+    //     // //  return setupError(context: context);
+    //     // return Container();
+    //     // }
+    //     return state.maybeWhen(categoriesLoading: () {
+    //       return setupLoading();
+    //     }, categoriesSuccess: (CategoriesResponseModel categoriesDataList) {
+    //       return setupSuccess(categoriesDataList.data.categoriesList);
+    //     },
+    //         //  categoriesError: (errorHandler) => setupError(context: context),
     //         orElse: () {
-    //           return const SizedBox.shrink();
-    //         });
+    //       return const SizedBox.shrink();
+    //     });
     //   },
     // );
   }
